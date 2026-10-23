@@ -1,0 +1,15 @@
+id: t1-delete-001
+tier: 1
+category: delete
+input: fixtures/chorale_bwv40_8.mid
+instruction: >
+  Delete the alto part in bars 3-4. Keep the rest of the alto and all other
+  voices exactly as they are.
+graders:
+  - {name: empty, args: {tracks: [Alto], bars: [3, 4]}}
+  - {name: preserve, args: {tracks: [Alto], bars: [[1, 2], [5, null]]}}
+  - {name: preserve, args: {exclude_tracks: [Alto]}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: delete_notes, selector: {track: Alto, bars: [3, 4]}}

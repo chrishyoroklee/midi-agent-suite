@@ -1,0 +1,15 @@
+id: t1-insert-001
+tier: 1
+category: insert
+input: fixtures/leadsheet_c.mid
+instruction: >
+  The bass drops out in the last bar. Add a whole-note C2 to the Bass track
+  at bar 16, beat 1. Change nothing else.
+graders:
+  - {name: contains, args: {track: Bass, bar: 16, beat: 1, pitch: C2, dur: 4}}
+  - {name: preserve, args: {bars: [1, 15], velocity: true}}
+  - {name: preserve, args: {bars: [16, null], exclude_tracks: [Bass], velocity: true}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: insert_note, track: Bass, bar: 16, beat: 1, pitch: C2, dur: 4, vel: 85}

@@ -1,0 +1,15 @@
+id: t1-transpose-003
+tier: 1
+category: transpose
+input: fixtures/leadsheet_c.mid
+instruction: >
+  Transpose the whole song to D major. Every track should move by the same
+  interval; change nothing else.
+graders:
+  - {name: transpose_exact, args: {semitones: 2, allow_octave: true}}
+  - {name: key, args: {key: D major}}
+pass_rule: all
+split: test
+notes: "Up a major second or down a minor seventh both count."
+gold_ops:
+  - {op: transpose, semitones: 2}

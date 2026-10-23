@@ -1,0 +1,12 @@
+id: t1-transpose-001
+tier: 1
+category: transpose
+input: fixtures/chorale_bwv347.mid
+instruction: >
+  Transpose the entire chorale down a whole step. Change nothing else.
+graders:
+  - {name: transpose_exact, args: {semitones: -2}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: transpose, semitones: -2}

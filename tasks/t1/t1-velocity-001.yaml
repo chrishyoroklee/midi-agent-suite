@@ -1,0 +1,14 @@
+id: t1-velocity-001
+tier: 1
+category: velocity
+input: fixtures/groove_em.mid
+instruction: >
+  Set every note in the bass track to velocity 64. Do not change anything else.
+graders:
+  - {name: velocity, args: {value: 64, tracks: [Bass]}}
+  - {name: preserve, args: {tracks: [Bass]}}
+  - {name: preserve, args: {tracks: [Drums], velocity: true}}
+pass_rule: all
+split: test
+gold_ops:
+  - {op: set_velocity, selector: {track: Bass}, value: 64}
