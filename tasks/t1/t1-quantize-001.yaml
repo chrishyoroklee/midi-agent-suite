@@ -1,0 +1,16 @@
+id: t1-quantize-001
+tier: 1
+category: quantize
+input: fixtures/groove_em.mid
+instruction: >
+  The drums are played loosely. Quantize the drum track to a 16th-note grid.
+  Leave the bass alone.
+graders:
+  - {name: quantize, args: {grid: 0.25, tracks: [Drums], tolerance: 0.01}}
+  - {name: preserve_pitches, args: {tracks: [Drums]}}
+  - {name: preserve, args: {tracks: [Bass], velocity: true}}
+weights: {quantize: 2}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: quantize, grid: 0.25, scope: {tracks: [Drums]}}

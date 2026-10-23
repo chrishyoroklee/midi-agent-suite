@@ -1,0 +1,13 @@
+id: t1-tempo-001
+tier: 1
+category: tempo
+input: fixtures/chorale_bwv40_8.mid
+instruction: >
+  Set the tempo of this chorale to 90 BPM.
+graders:
+  - {name: tempo, args: {bpm: 90}}
+  - {name: preserve, args: {velocity: true}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: set_tempo, bpm: 90}

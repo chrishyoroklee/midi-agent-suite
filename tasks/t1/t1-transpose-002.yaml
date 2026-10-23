@@ -1,0 +1,16 @@
+id: t1-transpose-002
+tier: 1
+category: transpose
+input: fixtures/leadsheet_c.mid
+instruction: >
+  Transpose the Melody up a perfect fourth in bars 5-8 only.
+  Leave the rest of the melody and the other tracks exactly as they are.
+graders:
+  - {name: transpose_exact, args: {semitones: 5, tracks: [Melody], bars: [5, 8]}}
+  - {name: preserve, args: {tracks: [Melody], bars: [[1, 4], [9, null]]}}
+  - {name: preserve, args: {exclude_tracks: [Melody]}}
+weights: {transpose_exact: 2}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: transpose, semitones: 5, scope: {tracks: [Melody], bars: [5, 8]}}

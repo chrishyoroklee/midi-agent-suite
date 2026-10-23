@@ -1,0 +1,14 @@
+{
+  "name": "midibench-pi-ext",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MIDIBench tools for the Pi coding agent (midi_read, midi_analyze, midi_edit, midi_verify)",
+  "type": "module",
+  "pi": {
+    "extensions": ["./index.ts"]
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.84.1",
+    "typebox": "*"
+  }
+}

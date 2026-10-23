@@ -1,0 +1,15 @@
+id: t1-tempo-002
+tier: 1
+category: tempo
+input: fixtures/leadsheet_c.mid
+instruction: >
+  Change the tempo to 120 BPM starting at bar 9. Bars 1-8 should keep the
+  tempo they have now.
+graders:
+  - {name: tempo, args: {bpm: 120, bars: [9, null]}}
+  - {name: tempo, args: {bpm: 100, bars: [1, 8]}}
+  - {name: preserve, args: {velocity: true}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: set_tempo, bpm: 120, at_bar: 9}

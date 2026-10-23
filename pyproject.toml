@@ -1,0 +1,31 @@
+[project]
+name = "midibench"
+version = "0.1.0"
+description = "MIDIBench: agentic evals for symbolic music editing"
+requires-python = ">=3.12"
+dependencies = [
+    "mido>=1.3",
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+    "pandas>=2.2",
+    "pyarrow>=16",
+]
+
+[project.scripts]
+midibench = "harness.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "music21>=9.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["midicore", "graders", "harness"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

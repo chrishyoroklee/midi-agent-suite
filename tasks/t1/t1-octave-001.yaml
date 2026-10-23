@@ -1,0 +1,13 @@
+id: t1-octave-001
+tier: 1
+category: transpose
+input: fixtures/groove_em.mid
+instruction: >
+  Move the whole bass line up one octave. Do not change the drums.
+graders:
+  - {name: transpose_exact, args: {semitones: 12, tracks: [Bass]}}
+  - {name: preserve, args: {tracks: [Drums], velocity: true}}
+pass_rule: all
+split: dev
+gold_ops:
+  - {op: transpose, semitones: 12, scope: {tracks: [Bass]}}
